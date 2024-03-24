@@ -1,0 +1,9 @@
+.avatar{
+    height: 300px;
+    object-fit: cover; 
+    object-position: top;
+}
+.card{
+    width: 18rem;
+    height: 460px;
+}
