@@ -1,9 +1,34 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui;
+}
+
 .avatar{
     height: 300px;
     object-fit: cover; 
     object-position: top;
+    mask-image: linear-gradient(to top, transparent, black 33%);
 }
 .card{
     width: 18rem;
     height: 460px;
+    border: solid black 2px;
+    border-radius: .5rem;
+    background: radial-gradient(circle, rgba(241,251,63,1) 0%, rgba(252,70,70,1) 100%);
 }
+
+.card-body{
+    color: #000;
+    border-radius: 0 0 .5rem .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.card-body>p{
+   margin: 0;
+ }

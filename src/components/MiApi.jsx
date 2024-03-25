@@ -19,13 +19,13 @@ const MiApi = () => {
   return (
     <>
       {data?.items?.map((character) => (
-        <Col key={character.id} xs={12} md={4}>
+        <Col key={character.id} xs={12} md={4} className='d-flex justify-content-center g-5'>
           <Card className='card'>
-            <Card.Img variant='top' src={character.image} className='avatar' />
-            <Card.Body>
-              <Card.Title>Nombre: {character.name}</Card.Title>
-              <Card.Text>Ki: {character.ki} </Card.Text>
-              <Card.Text>Raza: {character.race} </Card.Text>
+            <img src={character.image} className='avatar' />
+            <Card.Body className='card-body'>
+              <Card.Title>{character.name}</Card.Title>
+              <Card.Text>{character.ki} Ki </Card.Text>
+              <Card.Text>{character.race} </Card.Text>
             </Card.Body>
           </Card>
         </Col>
