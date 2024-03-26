@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react'
-import Card from 'react-bootstrap/Card'
+import CardDb from './CardDb'
 import Col from 'react-bootstrap/Col'
+import Buscador from './Buscador'
+import Sort from './Sort'
 
 const MiApi = () => {
   const [data, setData] = useState([])
+  const [render, setRender] = useState([])
   const fetchData = async () => {
     try {
       const response = await fetch('https://dragonball-api.com/api/characters?limit=58')
       const responseData = await response.json()
       setData(responseData)
+      setRender(responseData.items)
     } catch (error) {
       console.log(error)
     }
@@ -18,17 +22,14 @@ const MiApi = () => {
   }, [])
   return (
     <>
-      {data?.items?.map((character) => (
-        <Col key={character.id} xs={12} md={4} className='d-flex justify-content-center g-5'>
-          <Card className='card'>
-            <img src={character.image} className='avatar' />
-            <Card.Body className='card-body'>
-              <Card.Title>{character.name}</Card.Title>
-              <Card.Text>{character.ki} Ki </Card.Text>
-              <Card.Text>{character.race} </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
+      <Col xs={12} md={10}>
+        <Buscador data={data} setRender={setRender} />
+      </Col>
+      <Col xs={12} md={2}>
+        <Sort setRender={setRender} />
+      </Col>
+      {render?.map((character) => (
+        <CardDb key={character.id} character={character} />
       ))}
     </>
   )

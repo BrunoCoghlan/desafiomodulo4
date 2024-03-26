@@ -4,6 +4,8 @@ body{
     padding: 0;
     box-sizing: border-box;
     font-family: system-ui;
+    background-color: #222;
+    color: #fff;
 }
 
 .avatar{
@@ -31,4 +33,13 @@ body{
 
 .card-body>p{
    margin: 0;
+ }
+
+ .buscador{
+    width: 100%;
+ }
+
+ .sort{
+    width: 100%;
+    height: 100%;
  }
